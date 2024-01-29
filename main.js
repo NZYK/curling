@@ -24,6 +24,7 @@ let stoneA, stoneB;
 let leftClickStatus = "NO";
 let rightClickStatus = "NO";
 let clickCounter = 0;
+let poseCounter = 0;
 let scores = {
   A: [],
   B: []
@@ -203,8 +204,12 @@ function update() {
 
   //結果表示のためのポーズシーン
   if (scene == Scenes.Pose) {
-    setTimeout(function () { scene = Scenes.BeforeShot; }, 3000)
-    stones = [];
+    poseCounter = poseCounter + 1;
+    if (poseCounter == 3*60){
+      scene = Scenes.BeforeShot;
+      stones = [];
+      poseCounter = 0;
+    }
   }
 
   //ショット前のシーン
@@ -225,9 +230,9 @@ function update() {
 
       //リンクの範囲内でストーンの位置を追従
       if (mouseX < 148) {
-        startPosition = 148;
+        startPosition = 149;
       } else if (332 < mouseX) {
-        startPosition = 332;
+        startPosition = 331;
       } else {
         startPosition = mouseX;
       }
