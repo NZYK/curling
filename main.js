@@ -15,10 +15,10 @@ const Scenes = {
   End: "End"
 }
 let stones = [];
-let endTimes = 2; //ターン数 偶数を設定
+let endTimes = 4; //ターン数 偶数を設定
 let endCounter = 0;
 let turn;
-let stoneNumber = 2 * 2; //1ターンに投げるストーンの数 本来は8*2投
+let stoneNumber = 3 * 2; //1ターンに投げるストーンの数 本来は8*2投
 let stoneCounter = 0;
 let stoneA, stoneB;
 let leftClickStatus = "NO";
